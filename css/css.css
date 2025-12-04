@@ -6,7 +6,7 @@
   --red: #B9130D;
   --white: #FDFDFD;
   --tan: #D8D1C3;
-  --grey: #8D8D8D;
+  --grey: #ececec;
   --text: #1A1C1E;
 
   --bg: #F3F0E7;
@@ -149,24 +149,23 @@ main {
 .filterbartop {
   background: var(--bg-card);
   border-radius: var(--radius);
-  padding: 0.5rem;
+  padding: 0.2rem;
   margin-top: 0rem;
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(172, 198, 201, 0.1);
-  background-color: var(--red);
-
-  width: 100%;
+  background-color: var(--grey);
+  width: auto;
   z-index: 500;
 }
 
 .genrebar {
   background: var(--bg-card);
   border-radius: var(--radius);
-  padding: 0.5rem;
+  padding: 0.2rem;
   margin-top: 1rem;
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(172, 198, 201, 0.1);
-  background-color: var(--red);
+  background-color: var(--grey);
 
   width: 100%;
   z-index: 600;
@@ -235,7 +234,7 @@ main {
 /* Filter rækker */
 .filter-row-main {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 1rem;
 }
 
@@ -281,7 +280,8 @@ main {
 
 /* Input felter styling */
 #search-input,
-#genre-select {
+#genre-select,
+#sort-select {
   background: var(--bg-card);
   color: var(--text);
   border: 1px solid rgba(172, 198, 201, 0.3);
@@ -290,10 +290,9 @@ main {
   font-size: 1rem;
   transition: var(--transition);
   width: 100%;
+
 }
 
-
-#sort-select,
 #players-min,
 #players-max,
 #time-min,
@@ -490,7 +489,7 @@ footer {
 }
 
 .game-property {
-  background-color: rgb(241, 241, 241);
+  background-color: var(--grey);
   border-radius: 0.5rem;
   padding: 0.2rem;
 }

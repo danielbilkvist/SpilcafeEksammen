@@ -28,18 +28,27 @@
 
           <!-- Søg -->
       <section class="filterbartop">
-        <!-- Øverste række: Søg -->
         <div class="filter-row-main">
+        <!-- Øverste række: Søg -->
           <div class="filter-group search-group">
             <label for="search-input"></label>
             <input type="text" id="search-input" placeholder="Søg..." />
           </div>
+        <!-- Sortering dropdown -->
+          <div class="filter-group sort-group">
+           <label for="sort-select"></label>
+            <select id="sort-select">
+              <option value="none">Ingen sortering</option>
+              <option value="title">Titel (A-Å)</option>
+              <option value="playtime">Spilletid (Lang-Kort)</option>
+              <option value="rating">Rating (højeste først)</option>
+            </select>
         </div>
-        
+        </div>
         </section>
 
       <section class="genrebar">
-                  <div class="filter-group">
+                  <div class="filter-group genre-group">
             <label for="genre-select"></label>
             <select id="genre-select">
               <option value="all">Alle genrer</option>
@@ -54,18 +63,7 @@
 
         <!-- Nederste række: År og Rating ranges -->
         <div class="filter-row-ranges">
-          
-
-          <!-- Filter for sort og genre -->
-          <div class="filter-group">
-            <label for="sort-select">Sortering</label>
-            <select id="sort-select">
-              <option value="none">Ingen sortering</option>
-              <option value="title">Titel (A-Å)</option>
-              <option value="playtime">Spilletid (Lang-Kort)</option>
-              <option value="rating">Rating (højeste først)</option>
-            </select>
-          </div>
+        
           <!-- Antal Spillere range filter -->
           <div class="filter-group range-group">
             <label class="range-label">Antal Spillere</label>
