@@ -1,30 +1,23 @@
 /* =====================
-   DARK MODE CSS VARIABLES
+   CSS VARIABLES
    ===================== */
 :root {
   /* Colors */
-  --primary: #BF171C;
-  --secondary: #FDFDFD;
-  --primary-light: #bbb8ab;
+  --red: #B9130D;
+  --white: #FDFDFD;
+  --tan: #D8D1C3;
   --secondary-light: #3c4043;
+  --text: #1A1C1E;
 
-  /* Text - Dark Mode Colors */
-  --text: #222427;
-  --text-light: #222427;
-
-  /* Backgrounds - Dark Mode */
   --bg: #F3F0E7;
-  --bgt: #E7E5DC;
   --bg-card: #FDFDFD;
-
-  /* Semantic */
+  
   --success: #34a853;
   --warning: #fbc02d;
   --error: #ea4335;
 
   /* Effects */
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4);
   --radius: 1rem;
   --transition: 250ms ease;
 }
@@ -42,7 +35,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bgt) 50%, var(--primary-light) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg) 50%, var(--tan) 100%);
   color: var(--text);
   min-height: 100vh;
 }
@@ -109,7 +102,7 @@ main {
 }*/
 
 .ugens-spil:focus {
-  outline: 3px solid var(--secondary);
+  outline: 3px solid var(--white);
   outline-offset: 2px;
 }
 
@@ -124,7 +117,7 @@ main {
   align-items: center;
   justify-content: center;
   background: radial-gradient( #fff310,#ffa600 );
-  color: var(--secondary);
+  color: var(--white);
   font-weight: 700;
   font-size: 0.7rem;
   border-radius: 50%;
@@ -154,7 +147,7 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: var(--primary);
+  background-color: var(--red);
   z-index: -1;
   animation: rotate360 20s linear infinite;
   border-radius: 50%;
@@ -224,8 +217,8 @@ main {
 }
 
 .filterbarbot-toggle:hover {
-  background: var(--bgt);
-  border-color: var(--secondary);
+  background: var(--bg);
+  border-color: var(--white);
 }
 
 .filterbarbot-toggle::after {
@@ -295,7 +288,7 @@ main {
 }
 
 .range-separator {
-  color: var(--secondary);
+  color: var(--white);
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -326,7 +319,7 @@ main {
 #rating-from:focus,
 #rating-to:focus {
   outline: none;
-  border-color: var(--secondary);
+  border-color: var(--white);
   box-shadow: 0 0 0 3px rgba(172, 198, 201, 0.2);
 }
 
@@ -335,7 +328,7 @@ main {
 #year-to::placeholder,
 #rating-from::placeholder,
 #rating-to::placeholder {
-  color: var(--text-light);
+  color: var(--text);
   opacity: 0.6;
 }
 
@@ -354,7 +347,7 @@ main {
    ===================== */
 header {
   background-image: url('Daniel/Img/Design_uden_navn-removebg-preview.png');
-  background: var(--primary);
+  background: var(--red);
   backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid rgba(172, 198, 201, 0.2);
   color: var(--text);
@@ -372,19 +365,19 @@ header h1 {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.025em;
-  color: var(--secondary);
+  color: var(--white);
 }
 
 header h2 {
   font-size: clamp(1rem, 3vw, 1,5rem);
   font-weight: 600;
   letter-spacing: -0.025em;
-  color: var(--secondary);
+  color: var(--white);
 }
 
 footer {
-  background: var(--primary);
-  color: var(--secondary);
+  background: var(--red);
+  color: var(--white);
   text-align: center;
   padding: 2rem 1rem;
   margin-top: 4rem;
@@ -432,11 +425,11 @@ footer {
 .movie-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: var(--shadow-lg);
-  border-color: var(--secondary);
+  border-color: var(--white);
 }
 
 .movie-card:focus {
-  outline: 3px solid var(--secondary);
+  outline: 3px solid var(--white);
   outline-offset: 2px;
 }
 
@@ -444,7 +437,7 @@ footer {
   width: 100%;
   height: auto;
   object-fit: cover;
-  background: linear-gradient(135deg, var(--secondary), var(--secondary)30%);
+  background: linear-gradient(135deg, var(--white), var(--white)30%);
   transition: var(--transition);
 }
 
@@ -468,16 +461,16 @@ footer {
 }
 
 .movie-year {
-  color: var(--secondary);
+  color: var(--white);
   font-size: 0.875rem;
-  background: var(--primary);
+  background: var(--red);
   padding: 0.25rem 0.5rem;
   border-radius: 0.5rem;
   white-space: nowrap;
 }
 
 .movie-genre {
-  color: var(--text-light);
+  color: var(--text);
   font-size: 0.9rem;
   margin-bottom: 0.75rem;
 }
@@ -496,7 +489,7 @@ footer {
 }
 
 .movie-director {
-  color: var(--text-light);
+  color: var(--text);
   font-size: 0.875rem;
 }
 
@@ -515,7 +508,7 @@ dialog#movie-dialog {
   max-width: min(95vw, 1000px);
   max-height: 90vh;
   background: var(--bg-card);
-  color: var(--secondary);
+  color: var(--white);
   overflow: hidden;
   position: relative;
   margin: auto;
@@ -531,7 +524,7 @@ dialog#movie-dialog::backdrop {
   top: 1rem;
   right: 1rem;
   background: rgba(255, 255, 255, 0.9);
-  color: var(--text-light);
+  color: var(--text);
   border: none;
   border-radius: 50%;
   width: 2.5rem;
@@ -603,7 +596,7 @@ dialog#movie-dialog::backdrop {
 #dialog-content .movie-year {
   display: inline-block;
   background: var(--secondary-light);
-  color: var(--primary);
+  color: var(--red);
   padding: 0.25rem 0.75rem;
   border-radius: 0.5rem;
   margin-left: 0.5rem;
@@ -612,7 +605,7 @@ dialog#movie-dialog::backdrop {
 }
 
 #dialog-content p {
-  color: var(--text-light);
+  color: var(--text);
   line-height: 1.6;
   margin: 0 0 1rem 0;
 }
@@ -623,7 +616,7 @@ dialog#movie-dialog::backdrop {
 }
 
 #dialog-content .movie-genre {
-  color: var(--secondary);
+  color: var(--red);
   font-weight: 500;
   font-size: 1.1rem;
 }
@@ -644,14 +637,14 @@ dialog#movie-dialog::backdrop {
 }
 
 .movie-description {
-  color: var(--secondary) !important;
+  color: var(--white) !important;
   font-size: 1.1rem !important;
   line-height: 1.7 !important;
   margin-top: 1rem !important;
   padding: 1rem;
-  background: var(--primary);
+  background: var(--red);
   border-radius: var(--radius);
-  border-left: 4px solid var(--secondary);
+  border-left: 4px solid var(--red);
   font-style: italic;
 }
 
@@ -700,7 +693,7 @@ dialog#movie-dialog::backdrop {
 
 .no-results {
   text-align: center;
-  color: var(--text-light);
+  color: var(--text);
   font-size: 1.2rem;
   margin: 2rem 0;
   padding: 2rem;
@@ -767,7 +760,7 @@ dialog#movie-dialog::backdrop {
 /* Focus styles for keyboard navigation */
 .movie-card:focus-visible,
 #close-dialog:focus-visible {
-  outline: 3px solid var(--secondary);
+  outline: 3px solid var(--red);
   outline-offset: 2px;
 }
 
@@ -776,12 +769,12 @@ dialog#movie-dialog::backdrop {
    ===================== */
 @media (prefers-color-scheme: dark) {
   .movie-year {
-    background: var(--primary);
-    color: var(--secondary);
+    background: var(--red);
+    color: var(--red);
   }
   #dialog-content .movie-year {
-    background: var(--primary);
-    color: var(--secondary);
+    background: var(--red);
+    color: var(--red);
   }
   #close-dialog {
     background: rgba(23, 23, 23, 0.9);
