@@ -85,9 +85,6 @@ function renderIntroCard(game) {
   `;
   intro.insertAdjacentHTML('beforeend', html);
 }
-//        <p class="game-genre">${game.genre}</p>
-//        <p class="game-director"><strong>Players:</strong> ${game.players.min}-${game.players.max} • <strong>Playtime:</strong> ${game.playtime}m</p>
-//        <p class="game-description">${truncate(game.description, 140)}</p>
 
 function truncate(str, n) {
   return str && str.length > n ? str.slice(0, n-1) + '…' : str;
@@ -118,7 +115,6 @@ function displayGame(game) {
         <p class="game-genre">${escapeHtml(game.genre)}</p>
         <p class="game-rating"> ${game.rating}</p>
         <p class="game-players"><strong>Players:</strong> ${game.players.min}-${game.players.max} • <strong>Playtime:</strong> ${game.playtime}m</p>
-        <p class="game-description">${truncate(escapeHtml(game.description), 140)}</p>
       </div>
     </article>
   `;
@@ -163,6 +159,7 @@ function showGameModal(game) {
       <p><strong>Shelf:</strong> ${escapeHtml(game.shelf || '-')}</p>
       <p><strong>Difficulty:</strong> ${escapeHtml(game.difficulty || '-')}</p>
       <p><strong>Genre:</strong> ${escapeHtml(game.genre || '-')}</p>
+       <p class="game-description">${truncate(escapeHtml(game.description), 140)}</p>
       <div class="game-description">${escapeHtml(game.rules || game.description || '')}</div>
     </div>
   `;
@@ -219,7 +216,7 @@ function filterGames() {
   }
 
   if (sortValue === 'title') filtered.sort((a,b) => a.title.localeCompare(b.title));
-  else if (sortValue === 'year') filtered.sort((a,b) => (b.playtime||0) - (a.playtime||0));
+  else if (sortValue === 'playtime') filtered.sort((a,b) => (b.playtime||0) - (a.playtime||0));
   else if (sortValue === 'rating') filtered.sort((a,b) => (b.rating||0) - (a.rating||0));
 
   displayGames(filtered);

@@ -19,7 +19,7 @@
   /* Effects */
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
   --radius: 1rem;
-  --transition: 350ms ease;
+  --transition: 150ms ease;
 }
 
 /* =====================
@@ -47,12 +47,8 @@ main {
   max-width: min(1400px, 95vw);
   margin: 0 auto;
   overflow: hidden;
-  padding: clamp(1rem, 1vw, 6rem) 1rem 2rem;
-
-  /* Intro Design */
-  #intro {
-    padding: 3rem 0;
-  }
+  padding: clamp(3rem, 3vw, 6rem) 1rem 2rem;
+  /* padding: 3rem 0; */
 }
 
 /* =====================
@@ -62,13 +58,6 @@ main {
   #wallpaper {
     position: fixed;
     z-index: -1000;
-
-  /* Positioning variants for left/center/right */
-  .ugens-spil-left,
-  .ugens-spil-center,
-  .ugens-spil-right {
-    flex: 0 0 auto;
-  }
     top: 0px;
     left:0px;
   }
@@ -82,18 +71,14 @@ main {
   border: 1px solid rgba(255, 255, 255, 0.2);
   width: 20rem;
   margin: 0 auto;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   position: relative;
   background-color: var(--bg-card);
 }
 
-/* .ugens-spil:hover {
-  transform: translateY(8px) scale(1.05);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--white);
-  background: var(--white);
-} */
-
+.ugens-spil:hover {
+  border: 3px solid var(--red);
+}
 .ugens-spil:focus {
   outline: 3px solid var(--white);
   outline-offset: 2px;
@@ -168,9 +153,7 @@ main {
   margin-top: 0rem;
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(172, 198, 201, 0.1);
-  position:sticky;
-  top:0;
-  left:0;
+
   width: 100%;
   z-index: 500;
 }
