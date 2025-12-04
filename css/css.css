@@ -83,7 +83,7 @@ main {
 
   .ugens-spil {
   background: var(--bg-card);
-  border-radius: var(--radius);
+  border-radius:  var(--radius);
   box-shadow: var(--shadow);
   overflow: visible;
   transition: var(--transition);
@@ -652,7 +652,7 @@ dialog#movie-dialog::backdrop {
    CLEAR FILTERS BUTTON
    ===================== */
 #clear-filters {
-  background: linear-gradient(135deg, var(--error) 0%, #c62828 100%);
+  background: linear-gradient(135deg, var(--error) 0%, var(--error) 100%);
   color: white;
   border: none;
   border-radius: calc(var(--radius) * 0.5);
@@ -671,7 +671,7 @@ dialog#movie-dialog::backdrop {
 #clear-filters:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
-  background: linear-gradient(135deg, #c62828 0%, #b71c1c 100%);
+  background: linear-gradient(135deg, var(--red) 0%, var(--red) 100%);
 }
 
 #clear-filters:active {
