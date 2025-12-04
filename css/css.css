@@ -459,7 +459,17 @@ footer {
 .game-properties {
   color: var(--text);
   font-size: 0.875rem;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.game-property {
+  background-color: rgb(241, 241, 241);
+  border-radius: 0.5rem;
+  padding: 0.2rem;
 }
 
 .game-properties strong {

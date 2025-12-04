@@ -112,7 +112,11 @@ function displayGame(game) {
       <img src="${game.image}" alt="Poster of ${escapeHtml(game.title)}" class="game-poster" />
       <div class="game-info">
         <h3>${escapeHtml(game.title)} <span class="game-shelf">${game.shelf ? ''+escapeHtml(game.shelf)+'' : ''}</span></h3>
-        </p> <p class="game-properties"> 👤${game.players.min}-${game.players.max} ⏳${game.playtime} ⭐${game.rating}</p>
+        <div class="game-properties">
+        <p class="game-property">👤${game.players.min}-${game.players.max}</p>
+        <p class="game-property">⏳${game.playtime}</p> 
+        <p class="game-property">⭐${game.rating}</p>
+        </div>
       </div>
     </article>
   `;
