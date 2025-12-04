@@ -47,20 +47,12 @@ main {
   max-width: min(1400px, 95vw);
   margin: 0 auto;
   overflow: hidden;
-  /*padding-top: calc(var(--header-height, 4rem) + 1rem);*/
+  padding: clamp(1rem, 1vw, 6rem) 1rem 2rem;
 
-  /* Flexbox layout for three intro cards (left, center, right) */
+  /* Intro Design */
   #intro {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 2rem;
-    flex-wrap: wrap;
-    padding: 2rem 0;
+    padding: 3rem 0;
   }
-
-   padding: clamp(1rem, 1vw, 6rem) 1rem 2rem;
-  /*padding: clamp(10rem, 10vw, 8rem) 1rem 2rem;*/
 }
 
 /* =====================
@@ -150,7 +142,6 @@ main {
   background-repeat: no-repeat;
   z-index: -1;
   animation: rotate360 20s linear infinite;
-  border-radius: 100%;
   transform-origin: center;
   pointer-events: none;
   
