@@ -19,7 +19,7 @@
   /* Effects */
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
   --radius: 1rem;
-  --transition: 250ms ease;
+  --transition: 350ms ease;
 }
 
 /* =====================
@@ -92,14 +92,15 @@ main {
   margin: 0 auto;
   margin-bottom: 2rem;
   position: relative;
+  background-color: var(--bg-card);
 }
 
-/*.ugens-spil:hover {
+/* .ugens-spil:hover {
   transform: translateY(8px) scale(1.05);
   box-shadow: var(--shadow-lg);
-  border-color: var(--secondary);
-  background: var(--secondary);
-}*/
+  border-color: var(--white);
+  background: var(--white);
+} */
 
 .ugens-spil:focus {
   outline: 3px solid var(--white);
@@ -135,22 +136,21 @@ main {
 }
 
 
-/* showcase */
+/* burst */
 .ugens-spil::before {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 120%;
-  height: 120%;
-  background-image: url('img/showcase.png');
+  width: 200%;
+  height: 150%;
+  background-image: url('../img/burst.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: var(--red);
   z-index: -1;
   animation: rotate360 20s linear infinite;
-  border-radius: 50%;
+  border-radius: 100%;
   transform-origin: center;
   pointer-events: none;
   
