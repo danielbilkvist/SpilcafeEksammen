@@ -386,23 +386,30 @@ footer {
    ===================== */
 #game-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(1fr);
+  gap: clamp(1rem, 2vw, 2em);
   padding: 2rem 0;
 }
-@media (min-width: 600px) {
+
+@media (min-width: 400px) {
   #game-list {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (min-width: 992px) {
+
+@media (min-width: 750px) {
   #game-list {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1000px) {
+  #game-list {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 @media (min-width: 1400px) {
   #game-list {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
@@ -440,7 +447,7 @@ footer {
 }
 
 .game-info {
-  padding: 1.5rem;
+  padding: 0.5rem;
 }
 
 .game-info h3 {
@@ -744,19 +751,6 @@ dialog#game-dialog::backdrop {
 /* =====================
    RESPONSIVE & ACCESSIBILITY
    ===================== */
-@media (max-width: 480px) {
-  #game-list {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  .game-card {
-    max-width: 350px;
-    margin: 0 auto;
-  }
-  header h1 {
-    font-size: 1.75rem;
-  }
-}
 
 /* Focus styles for keyboard navigation */
 .game-card:focus-visible,
