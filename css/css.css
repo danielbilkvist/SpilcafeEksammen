@@ -87,8 +87,8 @@ main {
 /* Corner badge for intro card */
 .ugens-spil .corner-badge {
   position: absolute;
-  top: -1rem;
-  left: -1rem;
+  top: -2rem;
+  left: -2rem;
   width: 6rem;
   height: 6rem;
   display: flex;
