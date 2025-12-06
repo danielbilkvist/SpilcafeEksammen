@@ -1,20 +1,21 @@
 "use strict";
 
-// ===== APP INITIALISERING =====
+// Initialize app on DOM ready
 document.addEventListener("DOMContentLoaded", initApp);
 
-// Global var til spillene
+// All games data
 let allGames = [];
 
-// Change this id to the game you want shown in #intro (static, not editable live)
-const INTRO_GAME_ID = 17; // <-- set the numeric id here
-// Badge text for the intro card (leave empty to hide)
+// Weekly featured game ID
+const INTRO_GAME_ID = 20; // <-- Weekly featured game ID here
+// Badge text for weekly featured game
 const INTRO_BADGE_TEXT = "Ugens<br>Spil!";
 
+// Initialize application
 function initApp() {
   getGames();
 
-  // Keep existing filter UI wired but adapt behaviour to games
+// map inputs to filter function (if present in HTML)
   const searchInput = document.querySelector("#search-input");
   if (searchInput) searchInput.addEventListener("input", filterGames);
 
@@ -24,7 +25,7 @@ function initApp() {
   const sortSelect = document.querySelector("#sort-select");
   if (sortSelect) sortSelect.addEventListener("change", filterGames);
 
-  // map players inputs to playtime filter (if present in HTML)
+// map players inputs to players/playtime filter (if present in HTML)
   const playFrom = document.querySelector("#players-min");
   const playTo = document.querySelector("#players-max");
   if (playFrom) playFrom.addEventListener("input", filterGames);
@@ -35,10 +36,11 @@ function initApp() {
   if (ratingFrom) ratingFrom.addEventListener("input", filterGames);
   if (ratingTo) ratingTo.addEventListener("input", filterGames);
 
+// clear filters button (if present)
   const clearBtn = document.querySelector("#clear-filters");
   if (clearBtn) clearBtn.addEventListener("click", clearAllFilters);
 
-  // filterbarbot toggle (if present)
+// filterbarbot toggle (if present)
   const filterToggle = document.querySelector(".filterbarbot-toggle");
   const filterContent = document.querySelector(".filterbarbot-content");
   if (filterToggle && filterContent) {
@@ -63,7 +65,7 @@ async function getGames() {
   populateGenreDropdown();
   displayGames(allGames);
 
-  // Render the chosen game (by id) into #intro; fall back to first game if id not found
+// Render the chosen game (by id) into #intro; fall back to first game if id not found
   const introGame = allGames.find(g => g.id === INTRO_GAME_ID) || allGames[0];
   if (introGame) renderIntroCard(introGame);
 }
@@ -89,8 +91,7 @@ function renderIntroCard(game) {
 function truncate(str, n) {
   return str && str.length > n ? str.slice(0, n-1) + '…' : str;
 }
-
-// Display games list
+// Display games list from provided JSON
 function displayGames(games) {
   const list = document.querySelector("#game-list");
   if (!list) return;
@@ -103,6 +104,7 @@ function displayGames(games) {
   for (const game of games) displayGame(game);
 }
 
+// Game card
 function displayGame(game) {
   const list = document.querySelector("#game-list");
   if (!list) return;
@@ -120,9 +122,10 @@ function displayGame(game) {
       </div>
     </article>
   `;
+// Saved genre display
+// <p class="game-genre">${escapeHtml(game.genre)}</p>
 
-  // <p class="game-genre">${escapeHtml(game.genre)}</p>
-
+// Interactive card
   list.insertAdjacentHTML('beforeend', html);
   const newCard = list.lastElementChild;
   newCard.addEventListener('click', () => showGameModal(game));
@@ -134,11 +137,13 @@ function displayGame(game) {
   });
 }
 
+// Escape HTML special characters
 function escapeHtml(s) {
   if (!s) return '';
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;');
 }
 
+// Populate genre dropdown dynamically
 function populateGenreDropdown() {
   const genreSelect = document.querySelector('#genre-select');
   if (!genreSelect) return;
@@ -150,6 +155,8 @@ function populateGenreDropdown() {
   [...genres].sort().forEach(g => genreSelect.insertAdjacentHTML('beforeend', `<option value="${g}">${g}</option>`));
 }
 
+
+// Overlay card in modal dialog
 function showGameModal(game) {
   const dialogContent = document.querySelector('#dialog-content');
   if (!dialogContent) return;
@@ -171,6 +178,8 @@ function showGameModal(game) {
   if (dlg && typeof dlg.showModal === 'function') dlg.showModal();
 }
 
+
+// Clear all filters function
 function clearAllFilters() {
   const search = document.querySelector('#search-input'); if (search) search.value = '';
   const genre = document.querySelector('#genre-select'); if (genre) genre.value = 'all';
@@ -182,29 +191,33 @@ function clearAllFilters() {
   filterGames();
 }
 
+// Filter games based on current filter values
 function filterGames() {
   let filtered = allGames.slice();
   const searchValue = (document.querySelector('#search-input')?.value || '').toLowerCase();
   const genreValue = document.querySelector('#genre-select')?.value || 'all';
   const sortValue = document.querySelector('#sort-select')?.value || 'none';
 
-  // players-min/players-max = antal spillere (min/max players)
+  // players-min -> players-max
   const playersFrom = Number(document.querySelector('#players-min')?.value) || 0;
   const playersTo = Number(document.querySelector('#players-max')?.value) || Infinity;
   
-  // rating-from/rating-to = spilletid (min/max playtime in minutes)
+  // playtime-min -> playtime-max
   const playtimeFrom = Number(document.querySelector('#time-min')?.value) || 0;
   const playtimeTo = Number(document.querySelector('#time-max')?.value) || Infinity;
 
+
+// Filter by search text in title or description + convert to lowercase
   if (searchValue) {
     filtered = filtered.filter(g => (g.title || '').toLowerCase().includes(searchValue) || (g.description || '').toLowerCase().includes(searchValue));
   }
 
+// Genre Filter
   if (genreValue && genreValue !== 'all') {
     filtered = filtered.filter(g => g.genre === genreValue);
   }
 
-  // Filter by antal spillere (players min/max)
+// Filter by players min to max
   if (playersFrom || playersTo !== Infinity) {
     filtered = filtered.filter(g => {
       const minPlayers = g.players?.min || 0;
@@ -214,15 +227,17 @@ function filterGames() {
     });
   }
 
-  // Filter by spilletid (playtime min/max)
+  // Filter by playtime min to max
   if (playtimeFrom || playtimeTo !== Infinity) {
     filtered = filtered.filter(g => (typeof g.playtime === 'number') && g.playtime >= playtimeFrom && g.playtime <= playtimeTo);
   }
 
+// Sorting order
   if (sortValue === 'title') filtered.sort((a,b) => a.title.localeCompare(b.title));
   else if (sortValue === 'playtime') filtered.sort((a,b) => (b.playtime||0) - (a.playtime||0));
   else if (sortValue === 'rating') filtered.sort((a,b) => (b.rating||0) - (a.rating||0));
 
+// FInal display of filtered games
   displayGames(filtered);
 }
 
