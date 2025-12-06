@@ -171,23 +171,28 @@ function showGameModal(game) {
   const dialogContent = document.querySelector('#dialog-content');
   if (!dialogContent) return;
   dialogContent.innerHTML = `
+     <h2>${escapeHtml(game.title)}</h2>
     <img src="${game.image}" alt="Poster af ${escapeHtml(game.title)}" class="game-poster">
     <div class="dialog-details">
-      <h2>${escapeHtml(game.title)}</h2>
-      <p><strong>Players:</strong> ${game.players.min} - ${game.players.max}</p>
-      <p><strong>Playtime:</strong> ${game.playtime} minutes</p>
-      <p class="game-rating">⭐ ${game.rating}</p>
-      <p><strong>Shelf:</strong> ${escapeHtml(game.shelf || '-')}</p>
-      <p><strong>Difficulty:</strong> ${escapeHtml(game.difficulty || '-')}</p>
-      <p><strong>Genre:</strong> ${escapeHtml(game.genre || '-')}</p>
-       <p class="game-description">${truncate(escapeHtml(game.description), 140)}</p>
+   
+        <div class="game-properties">
+        <p class="game-property">👤${game.players.min}-${game.players.max}</p>
+        <p class="game-property">⏳${game.playtime}</p> 
+        <p class="game-property">⭐${game.rating}</p>
+        <p class="game-property">📚${escapeHtml(game.shelf || '-')}</p>
+        </div>
       <div class="game-description">${escapeHtml(game.rules || game.description || '')}</div>
     </div>
   `;
   const dlg = document.querySelector('#game-dialog');
   if (dlg && typeof dlg.showModal === 'function') dlg.showModal();
 }
-
+// Properties jeg gerne vil bruge, men som ikke er designet i min figma prototype. Så kan de bruges senere når jeg ved hvordan det ser godt ud:)
+      //   <div class="game-properties">
+      //   <p class="game-property"><strong>Difficulty:</strong> ${escapeHtml(game.difficulty || '-')}</p>
+      //   <p class="game-property"><strong>Genre:</strong> ${escapeHtml(game.genre || '-')}</p> 
+      //   </div>
+      //  <p class="game-description">${truncate(escapeHtml(game.description), 140)}</p>
 
 // Clear all filters function
 function clearAllFilters() {
