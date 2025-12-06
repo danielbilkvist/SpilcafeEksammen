@@ -86,7 +86,19 @@ function renderIntroCard(game) {
     </article>
   `;
   intro.insertAdjacentHTML('beforeend', html);
+
+  // Interactive card
+  const newCard = intro.lastElementChild;
+  newCard.addEventListener('click', () => showGameModal(game));
+  newCard.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      showGameModal(game);
+    }
+  });
 }
+
+
 
 //Shortens long text with "..."
 function truncate(str, n) {
