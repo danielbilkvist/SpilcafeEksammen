@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", initApp);
 let allGames = [];
 
 // Weekly featured game ID
-const INTRO_GAME_ID = 20; // <-- Weekly featured game ID here
+const INTRO_GAME_ID = 27; // <-- Weekly featured game ID here
 // Badge text for weekly featured game
 const INTRO_BADGE_TEXT = "Ugens<br>Spil!";
 
@@ -40,9 +40,9 @@ function initApp() {
   const clearBtn = document.querySelector("#clear-filters");
   if (clearBtn) clearBtn.addEventListener("click", clearAllFilters);
 
-// filterbarbot toggle (if present)
-  const filterToggle = document.querySelector(".filterbarbot-toggle");
-  const filterContent = document.querySelector(".filterbarbot-content");
+// advanced filter toggle (if present)
+  const filterToggle = document.querySelector(".advanced-filter-toggle");
+  const filterContent = document.querySelector(".advanced-filter-content");
   if (filterToggle && filterContent) {
     filterToggle.addEventListener("click", () => {
       filterToggle.classList.toggle("active");

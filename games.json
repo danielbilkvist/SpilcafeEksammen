@@ -426,7 +426,7 @@
   },
   {
     "id": 26,
-    "title": "Play 9",
+    "title": "Play Nine",
     "description": "Mine forældres yndlingsspil.",
     "image": "img/play9.webp",
     "genre": "Kortspil",
@@ -440,5 +440,22 @@
     "shelf": "B1",
     "available": true,
     "rules": "Spillet går ud på at få så få lavt et pointtal som muligt. Hver spiller får 8, og skiftes til at bytte sine kort ud med kort fra bunken."
+  },
+  {
+    "id": 27,
+    "title": "Power Hungry Pets",
+    "description": "Mit yndlingsspil.",
+    "image": "img/PHP.webp",
+    "genre": "Kortspil",
+    "playtime": 15,
+    "players": { "min": 2, "max": 6 },
+    "language": "English",
+    "rating": 5.0,
+    "age": 14,
+    "difficulty": "Let",
+    "location": "Viby",
+    "shelf": "D1",
+    "available": true,
+    "rules": "Brug dine dyriske kræfter til at eliminere alle andre ved bordet."
   }
 ]
