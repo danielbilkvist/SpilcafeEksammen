@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game App</title>
+    <title>Spilcaféen</title>
     <link rel="stylesheet" href="css/css.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   </head>
 
 <!-- Header -->
@@ -20,6 +20,7 @@
     </header>
 
 <main>
+
 <!-- Background -->
   <section id=wallpaper>
     <img src="img/wallpaper.jpg" alt="Baggrundsbillede af spilcaféen" />
@@ -37,7 +38,7 @@
   </section>
 
 <!-- Sort filter + Genre filter -->
-  <section class="select-filters">
+<section class="select-filters">
   
   <!-- Sorting Dropdown -->
     <div class="filter-group sort-group">
@@ -59,78 +60,77 @@
         </select>
     </div>
 
-  </section>
+</section>
 
-         <section class="advanced-filter">
-          <button class="advanced-filter-toggle">
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M440-120v-240h80v80h320v80H520v80h-80Zm-320-80v-80h240v80H120Zm160-160v-80H120v-80h160v-80h80v240h-80Zm160-80v-80h400v80H440Zm160-160v-240h80v80h160v80H680v80h-80Zm-480-80v-80h400v80H120Z"/>
-            </svg> -->
-            <span>Avancerede Filtre</span>
-          </button>
+<!-- Avancerede filtre -->
+<section class="advanced-filter">
+
+    <button class="advanced-filter-toggle">
+      <span>Avancerede Filtre</span>
+    </button>
         
-          <div class="advanced-filter-content">
+  <div class="advanced-filter-content">
 
  <!-- Players/Playtime -->
-        <div class="filter-row-ranges">
+  <div class="filter-row-ranges">
         
-          <!-- Players -->
-          <div class="filter-group range-group">
-            <label class="range-label">Antal Spillere</label>
-            <div class="range-inputs">
-              <input type="number" id="players-min" placeholder="1" min="1" max="10" />
-              <span class="range-separator">→</span>
-              <input type="number" id="players-max" placeholder="10" min="1" max="10" />
-            </div>
-          </div>
-
-          <!-- Playtime -->
-          <div class="filter-group range-group">
-            <label class="range-label">Spilletid</label>
-            <div class="range-inputs">
-              <input type="number" id="time-min" placeholder="10" min="10" max="240" step="10" />
-              <span class="range-separator">→</span>
-              <input type="number" id="time-max" placeholder="240" min="10" max="240" step="10" />
-            </div>
-          </div>
-
-<!-- Clear Filter -->
-          <button id="clear-filters" class="clear-btn">
-            <span class="btn-icon">🗑️</span>
-            <span class="btn-text">Ryd filtre</span>
-          </button>
-          </button>
+  <!-- Players -->
+    <div class="filter-group range-group">
+      <label class="range-label">Antal Spillere</label>
+        <div class="range-inputs">
+          <input type="number" id="players-min" placeholder="1" min="1" max="10" />
+          <span class="range-separator">→</span>
+          <input type="number" id="players-max" placeholder="10" min="1" max="10" />
         </div>
-      </section>
+      </div>
+
+  <!-- Playtime -->
+    <div class="filter-group range-group">
+      <label class="range-label">Spilletid</label>
+        <div class="range-inputs">
+          <input type="number" id="time-min" placeholder="10" min="10" max="240" step="10" />
+          <span class="range-separator">→</span>
+          <input type="number" id="time-max" placeholder="240" min="10" max="240" step="10" />
+        </div>
+      </div>
+
+  <!-- Clear Filter -->
+    <button id="clear-filters" class="clear-btn">
+      <span class="btn-icon">🗑️</span>
+      <span class="btn-text">Ryd filtre</span>
+    </button>
+  </div>
+</section>
       
       
 <!-- Game grid -->
-      <section id="game-list" class="game-grid">
-        <!-- Games will be inserted here dynamically -->
-      </section>
+  <section id="game-list" class="game-grid">
+    <!-- Insert games from JS and JSON,dynamically -->
+  </section>
 
 <!-- Back top top button -->
   <button id="top-btn" aria-label="Tilbage til toppen">
     <img src="img/UpSvg.svg" alt="Pil op">
   </button>
     
-
-    </main>
+</main>
 
 <!-- Footer -->
-    <footer>
-      <p>© Daniel Bentzen-Bilkvist</p>
-    </footer>
+  <footer>
+    <p>© Daniel Bentzen-Bilkvist</p>
+  </footer>
 
 <!-- Game Detail Modal -->
-    <dialog id="game-dialog">
-      <form method="dialog">
-        <button id="close-dialog" aria-label="Close">✕</button>
+  <dialog id="game-dialog">
+    <form method="dialog">
+      <button id="close-dialog" aria-label="Close">✕</button>
         <div id="dialog-content">
-          <!-- Game details will be injected here via JavaScript -->
+        <!-- Game details will be injected with JS and JSON, dynamisk-->
         </div>
-      </form>
-    </dialog>
+    </form>
+  </dialog>
 
     <script src="js/js.js"></script>
   </body>
+
 </html>

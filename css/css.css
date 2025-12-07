@@ -327,6 +327,10 @@ header img#logo {
   margin-bottom: 0.5rem; 
 }
 
+header img#logo:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 500px) {
   header img#logo {
     width: 4rem;
@@ -342,7 +346,11 @@ header img#burger {
   transform: translateY(-50%);
   width: 3rem;
   height: auto;
-  margin-bottom: 0.5rem; 
+  margin-bottom: 0.5rem;
+}
+
+header img#burger:hover {
+  cursor: pointer;
 }
 
 @media (max-width: 500px) {
