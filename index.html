@@ -39,7 +39,16 @@
 
 <!-- Sort filter + Genre filter -->
 <section class="select-filters">
-  
+
+  <!-- Genre Dropdown -->
+    <div class="filter-group genre-group">
+      <label for="genre-select"></label>
+        <select id="genre-select">
+          <option value="all">Alle genrer</option>
+            <!-- Genres will be inserted here dynamically -->
+        </select>
+    </div>
+
   <!-- Sorting Dropdown -->
     <div class="filter-group sort-group">
       <label for="sort-select"></label>
@@ -48,15 +57,6 @@
           <option value="title">Titel (A-Å)</option>
           <option value="playtime">Spilletid (Lang-Kort)</option>
           <option value="rating">Rating (højeste først)</option>
-        </select>
-    </div>
-
-  <!-- Genre Dropdown -->
-    <div class="filter-group genre-group">
-      <label for="genre-select"></label>
-        <select id="genre-select">
-          <option value="all">Alle genrer</option>
-            <!-- Genres will be inserted here dynamically -->
         </select>
     </div>
 
